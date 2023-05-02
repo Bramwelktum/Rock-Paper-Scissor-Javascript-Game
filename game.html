@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		h1 {
+			font-size: 3em;
+		}
+		button {
+			font-size: 2em;
+			margin: 10px;
+			padding: 10px;
+			cursor: pointer;
+			border: 2px solid #ccc;
+			background-color: darkred;
+		}
+		#result {
+			font-size: 2em;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Rock, Paper, Scissors</h1>
+	<p>Choose your move:</p>
+	<button onclick="play('rock')">Rock</button>
+	<button onclick="play('paper')">Paper</button>
+	<button onclick="play('scissors')">Scissors</button>
+	<div id="result"></div>
+
+	<script>
+	// This game does not require JavaScript, so no additional code is needed.
+	function play(playerMove) {
+    // Generate computer move
+    const moves = ["rock", "paper", "scissors"];
+    const computerMove = moves[Math.floor(Math.random() * 3)];
+    // Determine winner
+    let result;
+    if (playerMove === computerMove) {
+    result = "Tie game!";
+    } else if ((playerMove === "rock" && computerMove === "scissors") ||
+               (playerMove === "paper" && computerMove === "rock") ||
+               (playerMove === "scissors" && computerMove === "paper")) {
+        result = "You win!";
+    } else {
+        result = "Computer wins!";
+    }
+    // Display result
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = `You chose ${playerMove}, computer chose ${computerMove}. ${result}`;
+}
+	</script>
+</body>
+</html>
